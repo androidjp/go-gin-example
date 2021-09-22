@@ -37,6 +37,13 @@ var doc = `{
                 "summary": "Get multiple articles",
                 "parameters": [
                     {
+                        "type": "string",
+                        "description": "令牌",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
                         "description": "TagID",
                         "name": "tag_id",
                         "in": "body",
@@ -82,6 +89,13 @@ var doc = `{
                 ],
                 "summary": "Add article",
                 "parameters": [
+                    {
+                        "type": "string",
+                        "description": "令牌",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    },
                     {
                         "description": "TagID",
                         "name": "tag_id",
@@ -161,6 +175,13 @@ var doc = `{
                 "summary": "Get a single article",
                 "parameters": [
                     {
+                        "type": "string",
+                        "description": "令牌",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
                         "type": "integer",
                         "description": "ID",
                         "name": "id",
@@ -189,6 +210,13 @@ var doc = `{
                 ],
                 "summary": "Update article",
                 "parameters": [
+                    {
+                        "type": "string",
+                        "description": "令牌",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    },
                     {
                         "type": "integer",
                         "description": "ID",
@@ -268,6 +296,13 @@ var doc = `{
                 "summary": "Delete article",
                 "parameters": [
                     {
+                        "type": "string",
+                        "description": "令牌",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
                         "type": "integer",
                         "description": "ID",
                         "name": "id",
@@ -298,6 +333,13 @@ var doc = `{
                 ],
                 "summary": "Get multiple article tags",
                 "parameters": [
+                    {
+                        "type": "string",
+                        "description": "令牌",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    },
                     {
                         "type": "string",
                         "description": "Name",
@@ -332,6 +374,13 @@ var doc = `{
                 ],
                 "summary": "Add article tag",
                 "parameters": [
+                    {
+                        "type": "string",
+                        "description": "令牌",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    },
                     {
                         "description": "Name",
                         "name": "name",
@@ -382,6 +431,13 @@ var doc = `{
                 "summary": "Export article tag",
                 "parameters": [
                     {
+                        "type": "string",
+                        "description": "令牌",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
                         "description": "Name",
                         "name": "name",
                         "in": "body",
@@ -419,19 +475,14 @@ var doc = `{
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Import article tag",
+                "summary": "Import Image",
                 "parameters": [
                     {
-                        "description": "Excel File",
-                        "name": "file",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "integer"
-                            }
-                        }
+                        "type": "file",
+                        "description": "Image File",
+                        "name": "image",
+                        "in": "formData",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -457,6 +508,13 @@ var doc = `{
                 ],
                 "summary": "Update article tag",
                 "parameters": [
+                    {
+                        "type": "string",
+                        "description": "令牌",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    },
                     {
                         "type": "integer",
                         "description": "ID",
@@ -512,6 +570,13 @@ var doc = `{
                 ],
                 "summary": "Delete article tag",
                 "parameters": [
+                    {
+                        "type": "string",
+                        "description": "令牌",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    },
                     {
                         "type": "integer",
                         "description": "ID",
