@@ -402,14 +402,19 @@
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Import Image",
+                "summary": "Import article tag",
                 "parameters": [
                     {
-                        "type": "file",
-                        "description": "Image File",
-                        "name": "image",
-                        "in": "formData",
-                        "required": true
+                        "description": "Excel File",
+                        "name": "file",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
                     }
                 ],
                 "responses": {
