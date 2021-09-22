@@ -21,6 +21,11 @@ paths:
   /api/v1/articles:
     get:
       parameters:
+      - description: 令牌
+        in: query
+        name: token
+        required: true
+        type: string
       - description: TagID
         in: body
         name: tag_id
@@ -50,6 +55,11 @@ paths:
       summary: Get multiple articles
     post:
       parameters:
+      - description: 令牌
+        in: query
+        name: token
+        required: true
+        type: string
       - description: TagID
         in: body
         name: tag_id
@@ -101,6 +111,11 @@ paths:
   /api/v1/articles/{id}:
     delete:
       parameters:
+      - description: 令牌
+        in: query
+        name: token
+        required: true
+        type: string
       - description: ID
         in: path
         name: id
@@ -120,6 +135,11 @@ paths:
       summary: Delete article
     get:
       parameters:
+      - description: 令牌
+        in: query
+        name: token
+        required: true
+        type: string
       - description: ID
         in: path
         name: id
@@ -139,6 +159,11 @@ paths:
       summary: Get a single article
     put:
       parameters:
+      - description: 令牌
+        in: query
+        name: token
+        required: true
+        type: string
       - description: ID
         in: path
         name: id
@@ -190,6 +215,11 @@ paths:
   /api/v1/tags:
     get:
       parameters:
+      - description: 令牌
+        in: query
+        name: token
+        required: true
+        type: string
       - description: Name
         in: query
         name: name
@@ -212,6 +242,11 @@ paths:
       summary: Get multiple article tags
     post:
       parameters:
+      - description: 令牌
+        in: query
+        name: token
+        required: true
+        type: string
       - description: Name
         in: body
         name: name
@@ -243,6 +278,11 @@ paths:
   /api/v1/tags/{id}:
     delete:
       parameters:
+      - description: 令牌
+        in: query
+        name: token
+        required: true
+        type: string
       - description: ID
         in: path
         name: id
@@ -262,6 +302,11 @@ paths:
       summary: Delete article tag
     put:
       parameters:
+      - description: 令牌
+        in: query
+        name: token
+        required: true
+        type: string
       - description: ID
         in: path
         name: id
@@ -299,6 +344,11 @@ paths:
   /api/v1/tags/export:
     post:
       parameters:
+      - description: 令牌
+        in: query
+        name: token
+        required: true
+        type: string
       - description: Name
         in: body
         name: name
@@ -324,14 +374,11 @@ paths:
   /api/v1/tags/import:
     post:
       parameters:
-      - description: Excel File
-        in: body
-        name: file
+      - description: Image File
+        in: formData
+        name: image
         required: true
-        schema:
-          items:
-            type: integer
-          type: array
+        type: file
       produces:
       - application/json
       responses:
@@ -343,7 +390,7 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/app.Response'
-      summary: Import article tag
+      summary: Import Image
   /auth:
     post:
       consumes:
