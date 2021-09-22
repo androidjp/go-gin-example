@@ -18,6 +18,7 @@ import (
 
 // @Summary Get multiple article tags
 // @Produce  json
+// @Accept multipart/form-data
 // @Param token query string true "令牌"
 // @Param name query string false "Name"
 // @Param state query int false "State"
@@ -63,11 +64,12 @@ type AddTagForm struct {
 }
 
 // @Summary Add article tag
+// @Accept multipart/form-data
 // @Produce  json
 // @Param token query string true "令牌"
-// @Param name body string true "Name"
-// @Param state body int false "State"
-// @Param created_by body int false "CreatedBy"
+// @Param name formData string true "Name"
+// @Param state formData int false "State"
+// @Param created_by formData int false "CreatedBy"
 // @Success 200 {object} app.Response
 // @Failure 500 {object} app.Response
 // @Router /api/v1/tags [post]
@@ -116,11 +118,12 @@ type EditTagForm struct {
 
 // @Summary Update article tag
 // @Produce  json
+// @Accept multipart/form-data
 // @Param token query string true "令牌"
 // @Param id path int true "ID"
-// @Param name body string true "Name"
-// @Param state body int false "State"
-// @Param modified_by body string true "ModifiedBy"
+// @Param name formData string true "Name"
+// @Param state formData int false "State"
+// @Param modified_by formData string true "ModifiedBy"
 // @Success 200 {object} app.Response
 // @Failure 500 {object} app.Response
 // @Router /api/v1/tags/{id} [put]
@@ -165,6 +168,7 @@ func EditTag(c *gin.Context) {
 
 // @Summary Delete article tag
 // @Produce  json
+// @Accept multipart/form-data
 // @Param token query string true "令牌"
 // @Param id path int true "ID"
 // @Success 200 {object} app.Response
@@ -203,9 +207,10 @@ func DeleteTag(c *gin.Context) {
 
 // @Summary Export article tag
 // @Produce  json
+// @Accept multipart/form-data
 // @Param token query string true "令牌"
-// @Param name body string false "Name"
-// @Param state body int false "State"
+// @Param name formData string false "Name"
+// @Param state formData int false "State"
 // @Success 200 {object} app.Response
 // @Failure 500 {object} app.Response
 // @Router /api/v1/tags/export [post]
@@ -236,8 +241,9 @@ func ExportTag(c *gin.Context) {
 
 // @Summary Import article tag
 // @Produce  json
+// @Accept multipart/form-data
 // @Param token query string true "令牌"
-// @Param file body []byte true "Excel File"
+// @Param file formData []byte true "Excel File"
 // @Success 200 {object} app.Response
 // @Failure 500 {object} app.Response
 // @Router /api/v1/tags/import [post]
