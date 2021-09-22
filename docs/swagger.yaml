@@ -324,11 +324,14 @@ paths:
   /api/v1/tags/import:
     post:
       parameters:
-      - description: Image File
-        in: formData
-        name: image
+      - description: Excel File
+        in: body
+        name: file
         required: true
-        type: file
+        schema:
+          items:
+            type: integer
+          type: array
       produces:
       - application/json
       responses:
@@ -340,9 +343,22 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/app.Response'
-      summary: Import Image
+      summary: Import article tag
   /auth:
     post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: userName
+        in: formData
+        name: username
+        required: true
+        type: string
+      - description: password
+        in: formData
+        name: password
+        required: true
+        type: string
       produces:
       - application/json
       responses:
