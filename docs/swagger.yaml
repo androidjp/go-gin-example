@@ -20,6 +20,8 @@ info:
 paths:
   /api/v1/articles:
     get:
+      consumes:
+      - multipart/form-data
       parameters:
       - description: 令牌
         in: query
@@ -27,20 +29,17 @@ paths:
         required: true
         type: string
       - description: TagID
-        in: body
+        in: formData
         name: tag_id
-        schema:
-          type: integer
+        type: integer
       - description: State
-        in: body
+        in: formData
         name: state
-        schema:
-          type: integer
+        type: integer
       - description: CreatedBy
-        in: body
+        in: formData
         name: created_by
-        schema:
-          type: integer
+        type: integer
       produces:
       - application/json
       responses:
@@ -54,6 +53,8 @@ paths:
             $ref: '#/definitions/app.Response'
       summary: Get multiple articles
     post:
+      consumes:
+      - multipart/form-data
       parameters:
       - description: 令牌
         in: query
@@ -61,41 +62,35 @@ paths:
         required: true
         type: string
       - description: TagID
-        in: body
+        in: formData
         name: tag_id
         required: true
-        schema:
-          type: integer
+        type: integer
       - description: Title
-        in: body
+        in: formData
         name: title
         required: true
-        schema:
-          type: string
+        type: string
       - description: Desc
-        in: body
+        in: formData
         name: desc
         required: true
-        schema:
-          type: string
+        type: string
       - description: Content
-        in: body
+        in: formData
         name: content
         required: true
-        schema:
-          type: string
+        type: string
       - description: CreatedBy
-        in: body
+        in: formData
         name: created_by
         required: true
-        schema:
-          type: string
+        type: string
       - description: State
-        in: body
+        in: formData
         name: state
         required: true
-        schema:
-          type: integer
+        type: integer
       produces:
       - application/json
       responses:
@@ -158,6 +153,8 @@ paths:
             $ref: '#/definitions/app.Response'
       summary: Get a single article
     put:
+      consumes:
+      - multipart/form-data
       parameters:
       - description: 令牌
         in: query
@@ -170,36 +167,30 @@ paths:
         required: true
         type: integer
       - description: TagID
-        in: body
+        in: formData
         name: tag_id
-        schema:
-          type: string
+        type: string
       - description: Title
-        in: body
+        in: formData
         name: title
-        schema:
-          type: string
+        type: string
       - description: Desc
-        in: body
+        in: formData
         name: desc
-        schema:
-          type: string
+        type: string
       - description: Content
-        in: body
+        in: formData
         name: content
-        schema:
-          type: string
+        type: string
       - description: ModifiedBy
-        in: body
+        in: formData
         name: modified_by
         required: true
-        schema:
-          type: string
+        type: string
       - description: State
-        in: body
+        in: formData
         name: state
-        schema:
-          type: integer
+        type: integer
       produces:
       - application/json
       responses:
@@ -214,6 +205,8 @@ paths:
       summary: Update article
   /api/v1/tags:
     get:
+      consumes:
+      - multipart/form-data
       parameters:
       - description: 令牌
         in: query
@@ -241,6 +234,8 @@ paths:
             $ref: '#/definitions/app.Response'
       summary: Get multiple article tags
     post:
+      consumes:
+      - multipart/form-data
       parameters:
       - description: 令牌
         in: query
@@ -248,21 +243,18 @@ paths:
         required: true
         type: string
       - description: Name
-        in: body
+        in: formData
         name: name
         required: true
-        schema:
-          type: string
+        type: string
       - description: State
-        in: body
+        in: formData
         name: state
-        schema:
-          type: integer
+        type: integer
       - description: CreatedBy
-        in: body
+        in: formData
         name: created_by
-        schema:
-          type: integer
+        type: integer
       produces:
       - application/json
       responses:
@@ -277,6 +269,8 @@ paths:
       summary: Add article tag
   /api/v1/tags/{id}:
     delete:
+      consumes:
+      - multipart/form-data
       parameters:
       - description: 令牌
         in: query
@@ -301,6 +295,8 @@ paths:
             $ref: '#/definitions/app.Response'
       summary: Delete article tag
     put:
+      consumes:
+      - multipart/form-data
       parameters:
       - description: 令牌
         in: query
@@ -313,22 +309,19 @@ paths:
         required: true
         type: integer
       - description: Name
-        in: body
+        in: formData
         name: name
         required: true
-        schema:
-          type: string
+        type: string
       - description: State
-        in: body
+        in: formData
         name: state
-        schema:
-          type: integer
+        type: integer
       - description: ModifiedBy
-        in: body
+        in: formData
         name: modified_by
         required: true
-        schema:
-          type: string
+        type: string
       produces:
       - application/json
       responses:
@@ -343,6 +336,8 @@ paths:
       summary: Update article tag
   /api/v1/tags/export:
     post:
+      consumes:
+      - multipart/form-data
       parameters:
       - description: 令牌
         in: query
@@ -350,15 +345,13 @@ paths:
         required: true
         type: string
       - description: Name
-        in: body
+        in: formData
         name: name
-        schema:
-          type: string
+        type: string
       - description: State
-        in: body
+        in: formData
         name: state
-        schema:
-          type: integer
+        type: integer
       produces:
       - application/json
       responses:
@@ -373,12 +366,21 @@ paths:
       summary: Export article tag
   /api/v1/tags/import:
     post:
+      consumes:
+      - multipart/form-data
       parameters:
-      - description: Image File
-        in: formData
-        name: image
+      - description: 令牌
+        in: query
+        name: token
         required: true
-        type: file
+        type: string
+      - description: Excel File
+        in: formData
+        items:
+          type: integer
+        name: file
+        required: true
+        type: array
       produces:
       - application/json
       responses:
@@ -390,7 +392,7 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/app.Response'
-      summary: Import Image
+      summary: Import article tag
   /auth:
     post:
       consumes:
