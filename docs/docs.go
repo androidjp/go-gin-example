@@ -419,19 +419,14 @@ var doc = `{
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Import article tag",
+                "summary": "Import Image",
                 "parameters": [
                     {
-                        "description": "Excel File",
-                        "name": "file",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "integer"
-                            }
-                        }
+                        "type": "file",
+                        "description": "Image File",
+                        "name": "image",
+                        "in": "formData",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -542,22 +537,6 @@ var doc = `{
                     "application/json"
                 ],
                 "summary": "Get Auth",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "userName",
-                        "name": "username",
-                        "in": "query",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "password",
-                        "name": "password",
-                        "in": "query",
-                        "required": true
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "OK",

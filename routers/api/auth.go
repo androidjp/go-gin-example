@@ -19,8 +19,8 @@ type auth struct {
 
 // @Summary Get Auth
 // @Produce  json
-// @Param username query string true "userName"
-// @Param password query string true "password"
+// @Form username query string true "userName"
+// @Form password query string true "password"
 // @Success 200 {object} app.Response
 // @Failure 500 {object} app.Response
 // @Router /auth [post]

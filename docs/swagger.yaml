@@ -324,14 +324,11 @@ paths:
   /api/v1/tags/import:
     post:
       parameters:
-      - description: Excel File
-        in: body
-        name: file
+      - description: Image File
+        in: formData
+        name: image
         required: true
-        schema:
-          items:
-            type: integer
-          type: array
+        type: file
       produces:
       - application/json
       responses:
@@ -343,20 +340,9 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/app.Response'
-      summary: Import article tag
+      summary: Import Image
   /auth:
     post:
-      parameters:
-      - description: userName
-        in: query
-        name: username
-        required: true
-        type: string
-      - description: password
-        in: query
-        name: password
-        required: true
-        type: string
       produces:
       - application/json
       responses:
