@@ -31,6 +31,9 @@ var doc = `{
     "paths": {
         "/api/v1/articles": {
             "get": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
                 "produces": [
                     "application/json"
                 ],
@@ -44,28 +47,22 @@ var doc = `{
                         "required": true
                     },
                     {
+                        "type": "integer",
                         "description": "TagID",
                         "name": "tag_id",
-                        "in": "body",
-                        "schema": {
-                            "type": "integer"
-                        }
+                        "in": "formData"
                     },
                     {
+                        "type": "integer",
                         "description": "State",
                         "name": "state",
-                        "in": "body",
-                        "schema": {
-                            "type": "integer"
-                        }
+                        "in": "formData"
                     },
                     {
+                        "type": "integer",
                         "description": "CreatedBy",
                         "name": "created_by",
-                        "in": "body",
-                        "schema": {
-                            "type": "integer"
-                        }
+                        "in": "formData"
                     }
                 ],
                 "responses": {
@@ -84,6 +81,9 @@ var doc = `{
                 }
             },
             "post": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
                 "produces": [
                     "application/json"
                 ],
@@ -97,58 +97,46 @@ var doc = `{
                         "required": true
                     },
                     {
+                        "type": "integer",
                         "description": "TagID",
                         "name": "tag_id",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
+                        "in": "formData",
+                        "required": true
                     },
                     {
+                        "type": "string",
                         "description": "Title",
                         "name": "title",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "formData",
+                        "required": true
                     },
                     {
+                        "type": "string",
                         "description": "Desc",
                         "name": "desc",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "formData",
+                        "required": true
                     },
                     {
+                        "type": "string",
                         "description": "Content",
                         "name": "content",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "formData",
+                        "required": true
                     },
                     {
+                        "type": "string",
                         "description": "CreatedBy",
                         "name": "created_by",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "formData",
+                        "required": true
                     },
                     {
+                        "type": "integer",
                         "description": "State",
                         "name": "state",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
+                        "in": "formData",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -205,6 +193,9 @@ var doc = `{
                 }
             },
             "put": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
                 "produces": [
                     "application/json"
                 ],
@@ -225,53 +216,41 @@ var doc = `{
                         "required": true
                     },
                     {
+                        "type": "string",
                         "description": "TagID",
                         "name": "tag_id",
-                        "in": "body",
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "formData"
                     },
                     {
+                        "type": "string",
                         "description": "Title",
                         "name": "title",
-                        "in": "body",
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "formData"
                     },
                     {
+                        "type": "string",
                         "description": "Desc",
                         "name": "desc",
-                        "in": "body",
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "formData"
                     },
                     {
+                        "type": "string",
                         "description": "Content",
                         "name": "content",
-                        "in": "body",
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "formData"
                     },
                     {
+                        "type": "string",
                         "description": "ModifiedBy",
                         "name": "modified_by",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "formData",
+                        "required": true
                     },
                     {
+                        "type": "integer",
                         "description": "State",
                         "name": "state",
-                        "in": "body",
-                        "schema": {
-                            "type": "integer"
-                        }
+                        "in": "formData"
                     }
                 ],
                 "responses": {
@@ -328,6 +307,9 @@ var doc = `{
         },
         "/api/v1/tags": {
             "get": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
                 "produces": [
                     "application/json"
                 ],
@@ -369,6 +351,9 @@ var doc = `{
                 }
             },
             "post": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
                 "produces": [
                     "application/json"
                 ],
@@ -382,29 +367,23 @@ var doc = `{
                         "required": true
                     },
                     {
+                        "type": "string",
                         "description": "Name",
                         "name": "name",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "formData",
+                        "required": true
                     },
                     {
+                        "type": "integer",
                         "description": "State",
                         "name": "state",
-                        "in": "body",
-                        "schema": {
-                            "type": "integer"
-                        }
+                        "in": "formData"
                     },
                     {
+                        "type": "integer",
                         "description": "CreatedBy",
                         "name": "created_by",
-                        "in": "body",
-                        "schema": {
-                            "type": "integer"
-                        }
+                        "in": "formData"
                     }
                 ],
                 "responses": {
@@ -425,6 +404,9 @@ var doc = `{
         },
         "/api/v1/tags/export": {
             "post": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
                 "produces": [
                     "application/json"
                 ],
@@ -438,20 +420,16 @@ var doc = `{
                         "required": true
                     },
                     {
+                        "type": "string",
                         "description": "Name",
                         "name": "name",
-                        "in": "body",
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "formData"
                     },
                     {
+                        "type": "integer",
                         "description": "State",
                         "name": "state",
-                        "in": "body",
-                        "schema": {
-                            "type": "integer"
-                        }
+                        "in": "formData"
                     }
                 ],
                 "responses": {
@@ -472,15 +450,28 @@ var doc = `{
         },
         "/api/v1/tags/import": {
             "post": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Import Image",
+                "summary": "Import article tag",
                 "parameters": [
                     {
-                        "type": "file",
-                        "description": "Image File",
-                        "name": "image",
+                        "type": "string",
+                        "description": "令牌",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "Excel File",
+                        "name": "file",
                         "in": "formData",
                         "required": true
                     }
@@ -503,6 +494,9 @@ var doc = `{
         },
         "/api/v1/tags/{id}": {
             "put": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
                 "produces": [
                     "application/json"
                 ],
@@ -523,30 +517,24 @@ var doc = `{
                         "required": true
                     },
                     {
+                        "type": "string",
                         "description": "Name",
                         "name": "name",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "formData",
+                        "required": true
                     },
                     {
+                        "type": "integer",
                         "description": "State",
                         "name": "state",
-                        "in": "body",
-                        "schema": {
-                            "type": "integer"
-                        }
+                        "in": "formData"
                     },
                     {
+                        "type": "string",
                         "description": "ModifiedBy",
                         "name": "modified_by",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "formData",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -565,6 +553,9 @@ var doc = `{
                 }
             },
             "delete": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
                 "produces": [
                     "application/json"
                 ],
