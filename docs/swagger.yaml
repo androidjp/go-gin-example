@@ -345,7 +345,7 @@ paths:
             $ref: '#/definitions/app.Response'
       summary: Import article tag
   /auth:
-    get:
+    post:
       parameters:
       - description: userName
         in: query

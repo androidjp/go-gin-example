@@ -520,7 +520,7 @@
             }
         },
         "/auth": {
-            "get": {
+            "post": {
                 "produces": [
                     "application/json"
                 ],
