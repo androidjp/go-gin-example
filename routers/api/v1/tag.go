@@ -18,6 +18,7 @@ import (
 
 // @Summary Get multiple article tags
 // @Produce  json
+// @Param token query string true "令牌"
 // @Param name query string false "Name"
 // @Param state query int false "State"
 // @Success 200 {object} app.Response
@@ -63,6 +64,7 @@ type AddTagForm struct {
 
 // @Summary Add article tag
 // @Produce  json
+// @Param token query string true "令牌"
 // @Param name body string true "Name"
 // @Param state body int false "State"
 // @Param created_by body int false "CreatedBy"
@@ -114,6 +116,7 @@ type EditTagForm struct {
 
 // @Summary Update article tag
 // @Produce  json
+// @Param token query string true "令牌"
 // @Param id path int true "ID"
 // @Param name body string true "Name"
 // @Param state body int false "State"
@@ -162,6 +165,7 @@ func EditTag(c *gin.Context) {
 
 // @Summary Delete article tag
 // @Produce  json
+// @Param token query string true "令牌"
 // @Param id path int true "ID"
 // @Success 200 {object} app.Response
 // @Failure 500 {object} app.Response
@@ -199,6 +203,7 @@ func DeleteTag(c *gin.Context) {
 
 // @Summary Export article tag
 // @Produce  json
+// @Param token query string true "令牌"
 // @Param name body string false "Name"
 // @Param state body int false "State"
 // @Success 200 {object} app.Response
@@ -231,6 +236,7 @@ func ExportTag(c *gin.Context) {
 
 // @Summary Import article tag
 // @Produce  json
+// @Param token query string true "令牌"
 // @Param file body []byte true "Excel File"
 // @Success 200 {object} app.Response
 // @Failure 500 {object} app.Response
