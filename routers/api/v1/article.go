@@ -3,10 +3,10 @@ package v1
 import (
 	"net/http"
 
-	"github.com/unknwon/com"
 	"github.com/astaxie/beego/validation"
 	"github.com/boombuler/barcode/qr"
 	"github.com/gin-gonic/gin"
+	"github.com/unknwon/com"
 
 	"github.com/EDDYCJY/go-gin-example/pkg/app"
 	"github.com/EDDYCJY/go-gin-example/pkg/e"
@@ -18,8 +18,8 @@ import (
 )
 
 // @Summary Get a single article
-// @Produce  json
 // @Param token query string true "令牌"
+// @Produce  json
 // @Param id path int true "ID"
 // @Success 200 {object} app.Response
 // @Failure 500 {object} app.Response
@@ -58,10 +58,11 @@ func GetArticle(c *gin.Context) {
 
 // @Summary Get multiple articles
 // @Produce  json
+// @Accept multipart/form-data
 // @Param token query string true "令牌"
-// @Param tag_id body int false "TagID"
-// @Param state body int false "State"
-// @Param created_by body int false "CreatedBy"
+// @Param tag_id formData int false "TagID"
+// @Param state formData int false "State"
+// @Param created_by formData int false "CreatedBy"
 // @Success 200 {object} app.Response
 // @Failure 500 {object} app.Response
 // @Router /api/v1/articles [get]
@@ -125,13 +126,14 @@ type AddArticleForm struct {
 
 // @Summary Add article
 // @Produce  json
+// @Accept multipart/form-data
 // @Param token query string true "令牌"
-// @Param tag_id body int true "TagID"
-// @Param title body string true "Title"
-// @Param desc body string true "Desc"
-// @Param content body string true "Content"
-// @Param created_by body string true "CreatedBy"
-// @Param state body int true "State"
+// @Param tag_id formData int true "TagID"
+// @Param title formData string true "Title"
+// @Param desc formData string true "Desc"
+// @Param content formData string true "Content"
+// @Param created_by formData string true "CreatedBy"
+// @Param state formData int true "State"
 // @Success 200 {object} app.Response
 // @Failure 500 {object} app.Response
 // @Router /api/v1/articles [post]
@@ -189,14 +191,15 @@ type EditArticleForm struct {
 
 // @Summary Update article
 // @Produce  json
+// @Accept multipart/form-data
 // @Param token query string true "令牌"
 // @Param id path int true "ID"
-// @Param tag_id body string false "TagID"
-// @Param title body string false "Title"
-// @Param desc body string false "Desc"
-// @Param content body string false "Content"
-// @Param modified_by body string true "ModifiedBy"
-// @Param state body int false "State"
+// @Param tag_id formData string false "TagID"
+// @Param title formData string false "Title"
+// @Param desc formData string false "Desc"
+// @Param content formData string false "Content"
+// @Param modified_by formData string true "ModifiedBy"
+// @Param state formData int false "State"
 // @Success 200 {object} app.Response
 // @Failure 500 {object} app.Response
 // @Router /api/v1/articles/{id} [put]
