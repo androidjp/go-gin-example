@@ -19,6 +19,7 @@ import (
 
 // @Summary Get a single article
 // @Produce  json
+// @Param token query string true "令牌"
 // @Param id path int true "ID"
 // @Success 200 {object} app.Response
 // @Failure 500 {object} app.Response
@@ -57,6 +58,7 @@ func GetArticle(c *gin.Context) {
 
 // @Summary Get multiple articles
 // @Produce  json
+// @Param token query string true "令牌"
 // @Param tag_id body int false "TagID"
 // @Param state body int false "State"
 // @Param created_by body int false "CreatedBy"
@@ -123,6 +125,7 @@ type AddArticleForm struct {
 
 // @Summary Add article
 // @Produce  json
+// @Param token query string true "令牌"
 // @Param tag_id body int true "TagID"
 // @Param title body string true "Title"
 // @Param desc body string true "Desc"
@@ -186,6 +189,7 @@ type EditArticleForm struct {
 
 // @Summary Update article
 // @Produce  json
+// @Param token query string true "令牌"
 // @Param id path int true "ID"
 // @Param tag_id body string false "TagID"
 // @Param title body string false "Title"
@@ -251,6 +255,7 @@ func EditArticle(c *gin.Context) {
 
 // @Summary Delete article
 // @Produce  json
+// @Param token query string true "令牌"
 // @Param id path int true "ID"
 // @Success 200 {object} app.Response
 // @Failure 500 {object} app.Response
